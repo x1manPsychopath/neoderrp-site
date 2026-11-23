@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const weeks = (await getCollection('streamWeeks')).sort((a, b) => b.data.weekOf.valueOf() - a.data.weekOf.valueOf());
+const current = weeks[0];
+const rows = [
+  ['Monday', 'NeoDerrp', 'Main Quest Monday ⚔️ — flagship series'],
+  ['Tuesday', 'AmaDerrp', 'Adventure Tuesday 🪿 — fixed'],
+  ['Wednesday', 'NeoDerrp', 'Unfinished Business 🔍'],
+  ['Thursday', 'AmaDerrp', 'Thursday Flex 🎨 — flex project night'],
+  ['Friday', 'NeoDerrp', 'Community Quest Friday 🎲 — community & multiplayer'],
+  ['Saturday', 'Household', 'Protected family / flex — no stream by default'],
+  ['Sunday', 'AmaDerrp', 'Art n Goose Shenanigans 🌙 — fixed'],
+];
+---
+<Layout title="Schedule — NeoDerrp">
+  <section>
+    <h1>Household stream schedule</h1>
+    <p class="muted">All times 5:00–10:00 PM ET. Neo: Mon / Wed / Fri. Ama: Tue / Thu / Sun.</p>
+    <div class="grid">
+      {rows.map(([day, who, what]) => (
+        <article class="card">
+          <div class="day">{day}</div>
+          <span class={who === 'AmaDerrp' ? 'pill ama' : 'pill'}>{who}</span>
+          <p class="muted" style="margin:.6em 0 0">{what}</p>
+        </article>
+      ))}
+    </div>
+    {current && (
+      <div style="margin-top:22px">
+        <h2>This week's nights (from the calendar)</h2>
+        <p><strong>NeoDerrp:</strong> {current.data.neoNights.join(' · ')}</p>
+        <p><strong>AmaDerrp:</strong> {current.data.amaNights.join(' · ')}</p>
+        {current.data.specialEvents.map((e) => <p class="pill ama">{e}</p>)}
+        {current.data.notes && <p class="muted">{current.data.notes}</p>}
+      </div>
+    )}
+  </section>
+</Layout>

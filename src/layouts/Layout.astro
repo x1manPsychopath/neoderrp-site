@@ -1,0 +1,38 @@
+---
+import '../styles/tokens.css';
+const { title = 'NeoDerrp — Derrp Gaming' } = Astro.props;
+const links = [
+  ['Schedule', '/schedule'], ['Watch', '/#watch'], ['Projects', '/#projects'],
+  ['Services', '/services'], ["Ama's Art", '/commissions'], ['About', '/#about'],
+];
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <link rel="icon" href="/owl-badge.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="brand" href="/">
+        <img src="/owl-badge.png" alt="NeoDerrp owl badge" width="42" height="42" />
+        <span>Neo<em>Derrp</em></span>
+      </a>
+      <nav>{links.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
+    </div>
+  </header>
+  <main class="wrap"><slot /></main>
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <img src="/owl-badge.png" alt="" width="34" height="34" />
+      <p><strong>Derrp Gaming</strong> · Cozy gaming, IT, and building things together.<br />
+      NeoDerrp Mon/Wed/Fri · AmaDerrp Tue/Thu/Sun · All times ET · Lurkers welcome</p>
+    </div>
+  </footer>
+</body>
+</html>

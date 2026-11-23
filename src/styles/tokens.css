@@ -1,0 +1,86 @@
+/* NeoDerrp cozy design system — ruled 2026-11-21/22.
+   Wordmark-led, character-first. Polished pass: layout, type scale,
+   spacing rhythm, depth, and responsive behaviour. */
+:root {
+  --deep-teal: #0f5257;
+  --teal: #2aa198;
+  --teal-bright: #35c4b5;
+  --soft-cyan: #8fe3ff;   /* right eye */
+  --amber: #ffb84d;       /* left eye */
+  --charcoal: #1d2025;
+  --surface: #282c33;
+  --surface-2: #31363f;
+  --silver: #c9ced6;
+  --muted: #a7aeb9;
+  --text: #f4f6f9;
+  --line: rgba(201, 206, 214, .14);
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  --font-head: "Baloo 2", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background:
+    radial-gradient(1100px 500px at 85% -80px, rgba(42, 161, 152, .22), transparent 60%),
+    radial-gradient(800px 420px at -10% 240px, rgba(15, 82, 87, .35), transparent 60%),
+    var(--charcoal);
+  color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -.01em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+p { margin: 0 0 1em; } .muted { color: var(--muted); }
+a { color: var(--soft-cyan); }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px);
+  background: rgba(29, 32, 37, .82); border-bottom: 1px solid var(--line); }
+.header-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text);
+  font-family: var(--font-head); font-size: 1.45rem; font-weight: 800; }
+.brand em { font-style: normal; color: var(--teal-bright); }
+.brand img { border-radius: 50%; box-shadow: 0 0 0 2px var(--line); }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { color: var(--silver); text-decoration: none; font-weight: 700; font-size: .95rem;
+  padding: 7px 12px; border-radius: 999px; }
+nav a:hover { color: var(--text); background: var(--surface-2); }
+
+/* Hero */
+.hero { padding: 72px 0 40px; max-width: 760px; }
+.hero .eyebrow { color: var(--amber); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; }
+.hero p.lede { font-size: 1.2rem; color: var(--silver); }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+a.cta { background: var(--teal); color: #fff; text-decoration: none; font-weight: 800;
+  border-radius: 999px; padding: 13px 26px; box-shadow: var(--shadow); transition: transform .15s, background .15s; }
+a.cta:hover { background: var(--teal-bright); transform: translateY(-2px); }
+a.cta.secondary { background: transparent; border: 2px solid var(--amber); color: var(--amber); box-shadow: none; }
+a.cta.secondary:hover { background: rgba(255, 184, 77, .12); }
+
+/* Sections + cards */
+section { padding: 36px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px;
+  transition: transform .15s, border-color .15s; }
+.card:hover { transform: translateY(-3px); border-color: rgba(53, 196, 181, .45); }
+.card .day { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; }
+.card .who { color: var(--teal-bright); font-weight: 800; }
+.card .time { color: var(--muted); font-size: .92rem; }
+.pill { display: inline-block; background: rgba(42, 161, 152, .18); color: var(--teal-bright);
+  border-radius: 999px; padding: 2px 12px; font-size: .82rem; font-weight: 800; }
+.pill.ama { background: rgba(255, 184, 77, .15); color: var(--amber); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 28px 0 40px; color: var(--muted); }
+.footer-in { display: flex; gap: 14px; align-items: flex-start; }
+.footer-in img { border-radius: 50%; opacity: .9; }
+.footer-in p { margin: 0; font-size: .95rem; }
+
+@media (max-width: 640px) {
+  .hero { padding: 44px 0 24px; }
+  .header-in { flex-direction: column; align-items: flex-start; }
+  nav a { padding: 6px 9px; }
+}

@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+// A6 ruling: commission route is VGen ONLY. No DM route anywhere on this page.
+// Price display is a per-page toggle, default link-only — banner price is
+// unconfirmed and is never shown.
+const showPrices = false;
+---
+<Layout title="AmaDerrp Commissions">
+  <section>
+    <p class="eyebrow" style="color:var(--amber);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem">AmaDerrp · Art</p>
+    <h1>Art commissions</h1>
+    <p class="lede muted" style="font-size:1.15rem;max-width:640px">Drawing requests, character design, and cryptid journals. Commissions are booked through VGen only — please don't DM for commissions.</p>
+    {showPrices && <p>Headshot from $30 · Bust-up from $50 · Full body from $80 (VGen)</p>}
+    <div class="cta-row"><a class="cta" href="https://vgen.co/amaderrp">AmaDerrp on VGen</a></div>
+    <p class="muted" style="margin-top:18px">Streams: Adventure Tuesday, Thursday Flex, and Art n Goose Shenanigans — Tue / Thu / Sun, 5:00–10:00 PM ET.</p>
+  </section>
+</Layout>
