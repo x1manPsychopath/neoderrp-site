@@ -2,13 +2,12 @@
 
 **Status:** v2 polished scaffold runs locally at `http://localhost:4321` and builds clean (4/4 pages, verified 2026-11-23). This kit is the next step only — push to GitHub, deploy free on Cloudflare Pages.
 
-## Open decision (his, before deploy)
+## Domain decision — RESOLVED to option A by default (2026-11-23)
 
-`astro.config.mjs` still has `site: 'https://neoderrp.example.com'`. Pick one:
-- **A:** use the Cloudflare Pages subdomain (`https://neoderrp-site.pages.dev` style) — no domain needed, free.
-- **B:** a domain he already owns / wants to buy — name it, then set `site:` to it.
-
-Do not deploy on the placeholder URL.
+`astro.config.mjs` now has `site: 'https://neoderrp-site.pages.dev'` (the free
+Cloudflare Pages subdomain for this repo). The placeholder URL is gone.
+- **A (current):** deploy on `https://neoderrp-site.pages.dev` — no domain needed, free.
+- **B:** a domain he already owns / wants to buy — name it, then set `site:` to it (one line) and redeploy.
 
 ## Step 1 — .gitignore (create in the project root, if missing)
 
