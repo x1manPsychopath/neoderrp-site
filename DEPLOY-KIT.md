@@ -47,5 +47,5 @@ git push -u origin main
 
 ## Verify gate (paste back)
 
-- GitHub repo URL exists and shows the 4 pages + `public/owl-badge.png`.
+- GitHub repo URL exists and shows the 4 pages + `public/wordmark-stacked.png` and `public/wordmark-header.png`.
 - Cloudflare Pages deploy status: Success, and the live URL loads the hero with the owl badge in the header.

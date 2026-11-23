@@ -42,7 +42,9 @@ a { color: var(--soft-cyan); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text);
   font-family: var(--font-head); font-size: 1.45rem; font-weight: 800; }
 .brand em { font-style: normal; color: var(--teal-bright); }
-.brand img { border-radius: 50%; box-shadow: 0 0 0 2px var(--line); }
+.brand img { height: 46px; width: auto; display: block; }
+.hero-logo { width: min(400px, 90%); border-radius: 24px; box-shadow: var(--shadow);
+  border: 1px solid var(--line); margin-bottom: 26px; display: block; }
 nav { display: flex; gap: 4px; flex-wrap: wrap; }
 nav a { color: var(--silver); text-decoration: none; font-weight: 700; font-size: .95rem;
   padding: 7px 12px; border-radius: 999px; }
@@ -76,7 +78,7 @@ section { padding: 36px 0; }
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 28px 0 40px; color: var(--muted); }
 .footer-in { display: flex; gap: 14px; align-items: flex-start; }
-.footer-in img { border-radius: 50%; opacity: .9; }
+.footer-in img { height: 38px; width: auto; border-radius: 8px; opacity: .95; }
 .footer-in p { margin: 0; font-size: .95rem; }
 
 @media (max-width: 640px) {
