@@ -1,13 +1,12 @@
-# Deploy kit — NeoDerrp Astro site (prepared, not yet run)
+# Deploy kit — NeoDerrp Astro site
 
-**Status:** v2 polished scaffold runs locally at `http://localhost:4321` and builds clean (4/4 pages, verified 2026-11-23). This kit is the next step only — push to GitHub, deploy free on Cloudflare Pages.
+**Status:** Live on Cloudflare Workers (Git-connected, project `neoderrp-site`) at `https://neoderrp-site.phillips-joshua0108.workers.dev`. Builds clean locally (4/4 pages, verified 2026-11-23). Old Cloudflare Pages instructions below are **SUPERSEDED (2026-11-26)**.
 
-## Domain decision — RESOLVED to option A by default (2026-11-23)
+## Domain decision — RESOLVED to Option A: Cloudflare Workers (2026-11-26)
 
-`astro.config.mjs` now has `site: 'https://neoderrp-site.pages.dev'` (the free
-Cloudflare Pages subdomain for this repo). The placeholder URL is gone.
-- **A (current):** deploy on `https://neoderrp-site.pages.dev` — no domain needed, free.
-- **B:** a domain he already owns / wants to buy — name it, then set `site:` to it (one line) and redeploy.
+`astro.config.mjs` now has `site: 'https://neoderrp-site.phillips-joshua0108.workers.dev'` (the live Cloudflare Workers URL for project `neoderrp-site`). The never-created Cloudflare Pages URL is SUPERSEDED (2026-11-26).
+- **A (current):** live on Cloudflare Workers at `https://neoderrp-site.phillips-joshua0108.workers.dev` — Git-connected (`x1manPsychopath/neoderrp-site`, production branch `main`, build command `npm run build`), free.
+- **B (future custom domain):** Workers & Pages → `neoderrp-site` → Settings → Domains & Routes → add `neoderrp.eu.org` as a Custom Domain ONLY after EU.org approval, then update `site:` in `astro.config.mjs` to `https://neoderrp.eu.org`, commit, push.
 
 ## Step 1 — .gitignore (create in the project root, if missing)
 
@@ -36,15 +35,15 @@ git remote add origin https://github.com/x1manPsychopath/neoderrp-site.git
 git push -u origin main
 ```
 
-## Step 3 — Cloudflare Pages (free)
+## Step 3 — Cloudflare Workers deployment (current; old Cloudflare Pages instructions SUPERSEDED 2026-11-26)
 
-1. dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git.
-2. Pick `x1manPsychopath/neoderrp-site`.
-3. Framework preset: **Astro**. Build command: `npm run build`. Build output directory: `dist`.
-4. Deploy. First deploy gives the `*.pages.dev` URL; add a custom domain later if decision B.
-5. Set `site:` in `astro.config.mjs` to the real URL, commit, push — Pages redeploys automatically.
+*Note: Old Cloudflare Pages instructions are **SUPERSEDED (2026-11-26)**. Deployment is Cloudflare Workers (Git-connected, project `neoderrp-site`, live at `https://neoderrp-site.phillips-joshua0108.workers.dev`).*
+
+1. Live project: dash.cloudflare.com → Workers & Pages → `neoderrp-site` (Git-connected to `x1manPsychopath/neoderrp-site`, production branch `main`, build command: `npm run build`, output: `dist`).
+2. Canonical URL is set in `astro.config.mjs` to `https://neoderrp-site.phillips-joshua0108.workers.dev`. Pushes to `main` redeploy automatically.
+3. Custom domain (after EU.org approval): Workers & Pages → `neoderrp-site` → Settings → Domains & Routes → add `neoderrp.eu.org` as a Custom Domain ONLY after EU.org approval, then update `site:` to `https://neoderrp.eu.org`, commit, push.
 
 ## Verify gate (paste back)
 
 - GitHub repo URL exists and shows the 4 pages + `public/wordmark-stacked.png` and `public/wordmark-header.png`.
-- Cloudflare Pages deploy status: Success, and the live URL loads the hero with the owl badge in the header.
+- Cloudflare Workers deploy status (`neoderrp-site`): Success, and the live URL (`https://neoderrp-site.phillips-joshua0108.workers.dev`) loads the hero with the stacked wordmark in the header.

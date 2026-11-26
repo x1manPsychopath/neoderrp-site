@@ -10,13 +10,13 @@ npm install
 npm run dev
 ```
 
-## Deploy (free)
+## Deploy (Cloudflare Workers — free)
 
-1. Push this folder as a new GitHub repo under `x1manPsychopath`.
-2. Cloudflare Pages → Create project → connect the repo → Framework preset: **Astro** → Deploy.
-   (GitHub Pages also works: build command `npm run build`, output `dist/`.)
-3. Replace `site:` in `astro.config.mjs` with the real URL. Ama's VGen link is
-   already wired in `src/pages/commissions.astro`: https://vgen.co/amaderrp
+*Note: Old Cloudflare Pages instructions are **SUPERSEDED (2026-11-26)**.*
+
+1. Deployment is **Cloudflare Workers** (Git-connected to `x1manPsychopath/neoderrp-site`, project `neoderrp-site`, production branch `main`, build command `npm run build`, output `dist/`), live at `https://neoderrp-site.phillips-joshua0108.workers.dev`.
+2. Canonical `site:` in `astro.config.mjs` is set to `https://neoderrp-site.phillips-joshua0108.workers.dev`. Ama's VGen link is already wired in `src/pages/commissions.astro`: https://vgen.co/amaderrp
+3. Custom domain (after EU.org approval): Workers & Pages → `neoderrp-site` → Settings → Domains & Routes → add `neoderrp.eu.org` as a Custom Domain ONLY after EU.org approval, then update `site:` to `https://neoderrp.eu.org`, commit, push.
 
 ## Still TODO before public launch
 
